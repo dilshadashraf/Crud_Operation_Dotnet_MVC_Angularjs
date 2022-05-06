@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />    
+    <title>AddUser</title>
+</head>
+<body>
+    <div class="container" ng-app="myApp" ng-controller="myCtrl">
+        <h1>Registratio Form</h1>
+        <div class="row p-1">
+            <div class="col-md-6"> User Name</div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="userName" />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-md-6">Password</div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="password" />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-md-6">Email</div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="email" />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-md-6">Mobile</div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" ng-model="mobile" />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <input type="button" value="Register" class="btn btn-primary" ng-click="Register()" />
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/CRUDJs.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>ViewUser</title>
+</head>
+<body>
+    <div class="container" ng-app="myApp" ng-controller="myCtrl" ng-init="GetUsers();">
+        <table>
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Active</th>
+            </tr>
+            <tr ng-repeat="a in UserList">
+                <td>{{a.UserName}}</td>
+                <td>{{a.Email}}</td>
+                <td>{{a.Mobile}}</td>
+                <td>{{a.IsActive}}</td>                
+            </tr>
+        </table>
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/CRUDJs.js"></script>
+</body>
+</html>
