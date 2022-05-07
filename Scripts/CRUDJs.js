@@ -21,8 +21,15 @@ app.controller("myCtrl", function ($scope, $http) {
                 method: 'POST',
                 url: '/User/AddUser',
                 data: $scope.clsUser
-            }).then(function (backedresponse) {
-                alert("success");
+            }).then(function (backendresponse) {
+                if (backendresponse.data !== null && backendresponse.data !== "" && backendresponse.data > 0) {
+                    alert("User successfully inserted");
+                    window.location.href = "/User/ViewUser";
+                }
+                else {                   
+                    alert("Failed. Something went wrong. Please try aftr some time");
+                    console.log(backendresponse.data);
+                }                
             })
 
         //console.log("Class Data:" + $scope.clsUser.UserName);
@@ -34,11 +41,15 @@ app.controller("myCtrl", function ($scope, $http) {
             method: 'GET',
             url: '/User/ViewUserDetails'
         }).then(function (backendResponse) {
-            console.log(backendResponse.data);
+            console.log(backendResponse.data);// data => predefine (where we get the exact response from c# controller)
 
             $scope.UserList = backendResponse.data;// List data to bind in html page
         })
     }
 
-
+    $scope.EditUser = function (userDetails) {
+        sessionStorage.setItem("UsinglUserDetail", JSON.stringify(userDetails));// To convert data into string we use JSON.stringyfy(value)
+        console.log(userDetails);
+        window.location.href = "/User/AddUser";
+    }
 });

@@ -20,15 +20,33 @@ namespace Crud_Operation.Controllers
 
         // To submit data in to database
         [HttpPost]
-        public ActionResult AddUser(tblUser user)// We will get the data from frontend to user object
+        public JsonResult AddUser(tblUser user)// We will get the data from frontend to user object
         {
-            CrudDBEntities db = new CrudDBEntities();// This will come from DataContext folder(Models/CRUDModel.edmx/CRUDModel.Context.tt/CRUDModel.Context.cs)
-            user.DateCreated = DateTime.Now;
-            user.CreateBy = "SuperAdmin";
-            user.IsActive = true;
-            db.tblUsers.Add(user);
-            db.SaveChanges();// To finally store in database (If we will not write it will not save data in database)
-            return View();
+            try
+            {
+                CrudDBEntities db = new CrudDBEntities();// This will come from DataContext folder(Models/CRUDModel.edmx/CRUDModel.Context.tt/CRUDModel.Context.cs)
+                user.DateCreated = DateTime.Now;
+                user.CreateBy = "SuperAdmin";
+                user.IsActive = true;
+                db.tblUsers.Add(user);
+                db.SaveChanges();// To finally store in database (If we will not write it will not save data in database)
+
+                if (user.UserId > 0)
+                {
+                    return Json(user.UserId, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("Failed. Please try again", JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message, JsonRequestBehavior.AllowGet);
+            }
+
+
+                     
         }
 
         //To create view(HTML) page
