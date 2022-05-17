@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "UserStatus";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>UserStatus</h2>
+<div ng-app="myApp" ng-controller="myCtrl" ng-init="GetUsers();GetAllEmployee();">
+    <select class="form-control" ng-model="userId">
+        <option value="">--Select User--</option>
+        <option value="arman">Arman</option>
+        <option value="zeenat">Zeenat</option>
+    </select>
+    <br />
+    <hr />
+    <select class="form-control" ng-model="User">
+        <option value="">--Select User--</option>
+        <option value="{{obj.UserId}}" ng-repeat="obj in UserList">{{obj.UserName}}</option>
+
+    </select>
+    <hr />
+    <p>Employee DDL</p>
+    <select class="form-control" ng-model="EmployeeId">
+        <option>--Select--</option>
+        <option value="{{obj.EmployeeID}}" ng-repeat="obj in EmployeeData">{{obj.EmployeeName}}</option>
+    </select>
+    <input type="button" class="btn btn-info" value="Get Id" ng-click="GetUserId()" />
+</div>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/CRUDJs.js"></script>

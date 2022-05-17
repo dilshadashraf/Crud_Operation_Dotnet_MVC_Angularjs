@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,7 +149,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CRUDModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblEmployee.cs">
+      <DependentUpon>CRUDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLabTest.cs">
+      <DependentUpon>CRUDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPatient.cs">
+      <DependentUpon>CRUDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblUser.cs">
+      <DependentUpon>CRUDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserType.cs">
       <DependentUpon>CRUDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -252,6 +265,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\ViewUser.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\User\UserStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

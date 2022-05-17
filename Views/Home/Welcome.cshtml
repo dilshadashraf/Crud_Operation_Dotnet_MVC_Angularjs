@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h1>Welcome: @if (Session["UserName"] != null)
+            {
+                @Session["UserName"].ToString()
+            }
+</h1>
+<h2>Welcome To Dotent Traning (Internship based Training)</h2>
+

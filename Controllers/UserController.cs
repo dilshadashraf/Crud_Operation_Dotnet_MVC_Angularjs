@@ -10,6 +10,7 @@ namespace Crud_Operation.Controllers
 {
     public class UserController : Controller
     {
+        CrudDBEntities db = new CrudDBEntities();// This will come from DataContext folder(Models/CRUDModel.edmx/CRUDModel.Context.tt/CRUDModel.Context.cs)
         //By default Get Method
         //To View(HTML) page
         public ActionResult AddUser()
@@ -24,7 +25,7 @@ namespace Crud_Operation.Controllers
         {
             try
             {
-                CrudDBEntities db = new CrudDBEntities();// This will come from DataContext folder(Models/CRUDModel.edmx/CRUDModel.Context.tt/CRUDModel.Context.cs)
+
                 user.DateCreated = DateTime.Now;
                 user.CreateBy = "SuperAdmin";
                 user.IsActive = true;
@@ -46,7 +47,7 @@ namespace Crud_Operation.Controllers
             }
 
 
-                     
+
         }
 
         //To create view(HTML) page
@@ -58,10 +59,40 @@ namespace Crud_Operation.Controllers
         // To get data from database
         public ActionResult ViewUserDetails()
         {
-            CrudDBEntities db = new CrudDBEntities();
+
             var data = db.tblUsers.ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
             //return View();
+        }
+
+        public ActionResult UserStatus()
+        {
+            return View();
+        }
+
+        //public ActionResult GetUser
+
+        public ActionResult GetAllEmployee()
+        {
+            var data = (from obj in db.tblEmployees
+                        select new
+                        {
+                            obj.EmployeeID,
+                            obj.EmployeeName
+                        }).ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DetletUser(int userId)
+        {
+            var data = db.tblUsers.FirstOrDefault(x=>x.UserId == userId);
+            if(data!= null)
+            {
+                db.tblUsers.Remove(data);
+                return Json("User Successfully deleted", JsonRequestBehavior.AllowGet);
+            }
+            return Json("Something went wrong. Please try after sometime",JsonRequestBehavior.AllowGet);
         }
 
     }

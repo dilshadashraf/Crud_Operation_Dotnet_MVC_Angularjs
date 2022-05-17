@@ -6,6 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0f57fae7ad5c443293a8f18054ef97de" Name="Diagram1">
         <EntityTypeShape EntityType="CrudDBModel.tblUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrudDBModel.tblUserType" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CrudDBModel.tblEmployee" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CrudDBModel.tblLabTest" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="CrudDBModel.tblPatient" Width="1.5" PointX="3" PointY="4.875" />
+        <AssociationConnector Association="CrudDBModel.FK__tblPatien__TestI__4D94879B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

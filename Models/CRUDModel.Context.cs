@@ -26,5 +26,9 @@ namespace Crud_Operation.Models
         }
     
         public virtual DbSet<tblUser> tblUsers { get; set; }
+        public virtual DbSet<tblUserType> tblUserTypes { get; set; }
+        public virtual DbSet<tblEmployee> tblEmployees { get; set; }
+        public virtual DbSet<tblLabTest> tblLabTests { get; set; }
+        public virtual DbSet<tblPatient> tblPatients { get; set; }
     }
 }
