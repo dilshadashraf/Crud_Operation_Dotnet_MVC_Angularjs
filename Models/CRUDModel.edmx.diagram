@@ -11,6 +11,7 @@
         <EntityTypeShape EntityType="CrudDBModel.tblLabTest" Width="1.5" PointX="0.75" PointY="5.125" />
         <EntityTypeShape EntityType="CrudDBModel.tblPatient" Width="1.5" PointX="3" PointY="4.875" />
         <AssociationConnector Association="CrudDBModel.FK__tblPatien__TestI__4D94879B" />
+        <EntityTypeShape EntityType="CrudDBModel.tblCourse" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

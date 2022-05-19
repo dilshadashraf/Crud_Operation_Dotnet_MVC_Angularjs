@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>AddCourse</h2>
+<div ng-app="adminApp" ng-controller="adminCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            Course Name
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" ng-model="courseName"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Short Desc
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" ng-model="shortDesc" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Image
+        </div>
+        <div class="col-md-6">
+            <input type="file" ngf-select="uploadCourseImage($file)" ng-model="courseImage" name="file" class="btn btn-info btn-sm" />
+            @*<input type="file" class="button" ngf-select="uploadCourseImage($file)" ng-model="file" name="file" ngf-pattern="'image/*'"
+                   ngf-accept="'image/*'" ngf-max-size="20MB" />*@
+            @*ngf-min-height="100"
+        ngf-resize="{width: 100, height: 100}"*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <input type="button" value="Save Course" class="btn btn-primary" ng-click="AddCourse()"/>
+        </div>
+    </div>
+</div>
+
+
