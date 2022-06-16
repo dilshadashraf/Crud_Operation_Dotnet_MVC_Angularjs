@@ -12,18 +12,13 @@ namespace Crud_Operation.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblUser
+    public partial class tblOutPatient
     {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public int OutPatientId { get; set; }
+        public string PatientName { get; set; }
         public string Email { get; set; }
         public string Mobile { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public string CreateBy { get; set; }
-        public Nullable<System.DateTime> LastUpdated { get; set; }
-        public string UpdatedBy { get; set; }
-        public bool IsActive { get; set; }
-        public string UserType { get; set; }
+        public Nullable<int> Age { get; set; }
+        public string Disease { get; set; }
     }
 }

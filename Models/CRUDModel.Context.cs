@@ -31,5 +31,6 @@ namespace Crud_Operation.Models
         public virtual DbSet<tblLabTest> tblLabTests { get; set; }
         public virtual DbSet<tblPatient> tblPatients { get; set; }
         public virtual DbSet<tblCourse> tblCourses { get; set; }
+        public virtual DbSet<tblOutPatient> tblOutPatients { get; set; }
     }
 }

@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "AddConveyance";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>AddConveyance</h2>
+<div ng-app="convApp" ng-controller="convCtrl">
+    <div class="row">
+        <div class="col-md-6">
+            Employee Name
+        </div>
+        <div class="col-md-6">
+            <input type="text" ng-model="employeeName" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Conveyance Type
+        </div>
+        <div class="col-md-6">
+            <select class=" form-control" ng-model="conveyanceType">
+                <option value="">--Select--</option>
+                <option value="Travelling">Travelling</option>
+                <option value="Food">Food</option>
+                <option value="Holet">Holet</option>
+                <option value="Otehr">Other</option>
+            </select>
+            <input type="text" ng-model="" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Date
+        </div>
+        <div class="col-md-6">
+            <input type="date" ng-model="date" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Bill Attachment
+        </div>
+        <div class="col-md-6">
+            <input type="file" ngf-select="uploadBill($file)" ng-model="bill" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Bill Amount
+        </div>
+        <div class="col-md-6">
+            <input type="number" ng-model="billAmount" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Remarks
+        </div>
+        <div class="col-md-6">
+            <textarea class="form-control" ng-model="remarks"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">           
+        </div>
+        <div class="col-md-6">
+            <input type="button" class="btn btn-primary" value="Submit" ng-click="AddConveyance();" />
+        </div>
+    </div>
+</div>
+

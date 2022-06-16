@@ -12,9 +12,17 @@ namespace Crud_Operation.Controllers
     {
         CrudDBEntities db = new CrudDBEntities();//this is coming from edmx file => Models =>
         // GET: Course
+        //For view page
         public ActionResult AddCourse()
         {
-            return View();
+            if (Session["UserType"] != null)
+            {
+                if (Session["UserType"].ToString() == "SuperAdmin")
+                {
+                    return View();
+                }                
+            }
+            return RedirectToAction("Login", "Login");
         }
 
         [HttpPost]
@@ -22,16 +30,16 @@ namespace Crud_Operation.Controllers
         {
             #region Upload image in Images folder
 
-            string folderPath = @"D:\CourseImages";//  Assign path as per your drive
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-            //string path = Server.MapPath("~/Images/");
+            //string folderPath = @"D:\CourseImages";//  Assign path as per your drive
+            //if (!Directory.Exists(folderPath))
+            //{
+            //    Directory.CreateDirectory(folderPath);
+            //}
+            string path = Server.MapPath("~/CourseImages/");
             if (!string.IsNullOrEmpty(postedFile.FileName))
             {
                 //postedFile.SaveAs(path + postedFile.FileName + DateTime.Now); // Save into image folder
-                postedFile.SaveAs(folderPath + postedFile.FileName); // Save into image folder
+                postedFile.SaveAs(path + postedFile.FileName); // Save into image folder
             }
             #endregion
 
@@ -42,6 +50,11 @@ namespace Crud_Operation.Controllers
 
             db.SaveChanges();//To finaaly store into database
             return Content(course.CourseId.ToString());//Return type is string so we have to return only string value
+        }
+
+        public ActionResult ViewCourse()
+        {
+            return View();
         }
     }
 }

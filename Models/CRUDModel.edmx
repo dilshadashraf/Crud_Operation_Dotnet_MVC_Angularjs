@@ -37,6 +37,17 @@
           <Property Name="TestName" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="tblOutPatient">
+          <Key>
+            <PropertyRef Name="OutPatientId" />
+          </Key>
+          <Property Name="OutPatientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="10" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Disease" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblPatient">
           <Key>
             <PropertyRef Name="PatientId" />
@@ -61,6 +72,7 @@
           <Property Name="LastUpdated" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="tblUserType">
           <Key>
@@ -90,6 +102,7 @@
           <EntitySet Name="tblCourse" EntityType="Self.tblCourse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblLabTest" EntityType="Self.tblLabTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOutPatient" EntityType="Self.tblOutPatient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPatient" EntityType="Self.tblPatient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
@@ -116,6 +129,7 @@
           <Property Name="LastUpdated" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UserType" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="CrudDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
@@ -128,6 +142,7 @@
             <End Role="tblPatient" EntitySet="tblPatients" />
           </AssociationSet>
           <EntitySet Name="tblCourses" EntityType="CrudDBModel.tblCourse" />
+          <EntitySet Name="tblOutPatients" EntityType="CrudDBModel.tblOutPatient" />
         </EntityContainer>
         <EntityType Name="tblUserType">
           <Key>
@@ -197,6 +212,17 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="tblOutPatient">
+          <Key>
+            <PropertyRef Name="OutPatientId" />
+          </Key>
+          <Property Name="OutPatientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Disease" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -206,6 +232,7 @@
           <EntitySetMapping Name="tblUsers">
             <EntityTypeMapping TypeName="CrudDBModel.tblUser">
               <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -275,6 +302,18 @@
                 <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOutPatients">
+            <EntityTypeMapping TypeName="CrudDBModel.tblOutPatient">
+              <MappingFragment StoreEntitySet="tblOutPatient">
+                <ScalarProperty Name="Disease" ColumnName="Disease" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="OutPatientId" ColumnName="OutPatientId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
